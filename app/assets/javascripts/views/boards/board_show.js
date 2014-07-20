@@ -24,10 +24,16 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
   },
 
   makeListsSortable: function(){
-    this.$el.find(".lists").sortable({
+    var view = this;
+    var lists = this.$el.find(".lists")
+    lists.sortable({
       connectWith: ".lists",
       placeholder: "col-xs-3 panel panel-primary",
-      forcePlaceholderSize: true
+      forcePlaceholderSize: true,
+      update: function (event, ui) {
+        var data = lists.sortable('serialize');
+        view.model.lists().updateOrd(data);
+      }
     });
   }
 });

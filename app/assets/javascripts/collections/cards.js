@@ -1,7 +1,4 @@
-TrelloClone.Collections.Cards = Backbone.Collection.extend({
+TrelloClone.Collections.Cards = Backbone.OrderedCollection.extend({
   model: TrelloClone.Models.Card,
-  url: 'api/cards',
-  comparator: function(card){
-    return -card.escape('ord');
-  }
+  url: 'api/cards'
 });
