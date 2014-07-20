@@ -9,30 +9,50 @@ window.TrelloClone = {
   }
 };
 
-Backbone.CompositeView = Backbone.View.extend({
-  addSubview: function(selector, subview) {
-    this.subviews(selector).push(subview);
-    this.attachSubview(selector, subview.render());
-  },
+// Backbone.CompositeView = Backbone.View.extend({
+//   addSubview: function(selector, subview) {
+//     this.subviews(selector).push(subview);
+//     this.attachSubview(selector, subview.render());
+//   },
 
-  attachSubview: function(selector, subview) {
-    this.$(selector).append(subview.$el);
-    subview.delegateEvents();
-  },
+//   attachSubview: function(selector, subview) {
+//     this.$(selector).append(subview.$el);
+//     subview.delegateEvents();
+//   },
 
-  attachSubviews: function(){
-    var view = this;
+//   attachSubviews: function(){
+//     var view = this;
+//     _(this.subviews()).each(function(subviews, selector){
+//       view.$(selector).empty();
+//       _(subviews).each(function(subview){
+//         view.attachSubview(selector, subview);
+//       })
+//     })
+//   },
 
-  }
+//   remove: function(){
+//     _(this.subviews()).each(function(subviews, selector){
+//       _(subviews).each(function(subview) {
+//         subview.remove();
+//       })
+//     })
+//     this.remove();
+//   },
 
-  subviews: function(selector) {
-    this._subviews = this._subviews || {};
-    if(!selector){
-      return this._subviews;
-    } else {
-      this._subviews[selector] = this_subviews[selector] || [];
-      return this._subviews[selector];
-    }
-    }
-  }
-})
+//   removeSubview: function(selector, subview){
+//     var subviews = this.subviews(selector);
+//     subviews.splice(subviews.indexOf(subview), 1);
+
+//     subview.remove();
+//   },
+
+//   subviews: function(selector) {
+//     this._subviews = this._subviews || {};
+//     if(!selector){
+//       return this._subviews;
+//     } else {
+//       this._subviews[selector] = this_subviews[selector] || [];
+//       return this._subviews[selector];
+//     }
+//   }
+// })
