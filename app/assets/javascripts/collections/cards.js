@@ -21,7 +21,6 @@ TrelloClone.Collections.Cards = Backbone.Collection.extend({
   updateOrd: function(data){
     var collection = this;
     if (data == ""){
-      console.log(data);
       collection.reset();
     } else {
       var ids = data.split("&").map(function(id){ return id.match(/=(\d+)/)[1]});
