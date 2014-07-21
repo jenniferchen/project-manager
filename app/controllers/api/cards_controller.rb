@@ -12,6 +12,15 @@ module Api
       end
     end
 
+    def show
+      @card = Card.find(params[:id])
+      if (current_user.boards.include?(current_board))
+        render json: @card
+      else
+        render json: "Cannot fetch card belonging to another user", status: :unprocessable_entity
+      end
+    end
+
     def update
       @card = Card.find(params[:id]);
       if @card.update_attributes(card_params)
