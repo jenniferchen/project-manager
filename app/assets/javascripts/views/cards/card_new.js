@@ -17,10 +17,21 @@ TrelloClone.Views.CardNew = Backbone.View.extend({
     var formData = $(event.target).serializeJSON();
     var card = new TrelloClone.Models.Card(formData['card']);
 
+    card.on("invalid", function(model, error){
+      var errorMsg = $("<div>");
+      errorMsg.addClass("alert alert-danger top-buffer");
+      errorMsg.html(error);
+      view.$el.find(".message").append(errorMsg);
+    })
+
     card.save({}, {
       success: function(){
         view.model.cards().add(card);
         view.render();
+        var successMsg = $("<div>");
+        successMsg.addClass("alert alert-success top-buffer");
+        successMsg.html("New Card Created");
+        view.$el.find(".message").append(successMsg);
       }
     })
   }
