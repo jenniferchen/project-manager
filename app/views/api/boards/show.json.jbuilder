@@ -11,5 +11,9 @@ json.lists @board.lists do |list|
 
   json.cards list.cards do |card|
     json.extract! card, :id, :title, :ord, :created_at, :updated_at
+
+    json.items card.items do |item|
+      json.extract! item, :id, :title, :created_at, :updated_at
+    end
   end
 end
