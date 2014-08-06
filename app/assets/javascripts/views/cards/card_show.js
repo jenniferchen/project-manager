@@ -6,8 +6,6 @@ TrelloClone.Views.CardShow = Backbone.CompositeView.extend({
     "click .launch-card-detail": 'viewDetail'
   },
   id: function(){ return "card-" + this.model.id },
-  initialize: function(){
-;  },
   render: function(){
     var renderedContent = this.template({ card: this.model });
     this.$el.html(renderedContent);
