@@ -28,10 +28,6 @@ TrelloClone.Views.CardNew = Backbone.View.extend({
       success: function(){
         view.model.cards().add(card);
         view.render();
-        var successMsg = $("<div>");
-        successMsg.addClass("alert alert-success top-buffer");
-        successMsg.html("New Card Created");
-        view.$el.find(".message").append(successMsg);
       }
     })
   }
