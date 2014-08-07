@@ -26,7 +26,11 @@ TrelloClone.Collections.Cards = Backbone.Collection.extend({
       var ids = data.split("&").map(function(id){ return id.match(/=(\d+)/)[1]});
       ids.forEach(function(id, idx){
         var model = collection.getOrFetch(id);
-        model.save({'ord': idx,'list_id': collection.list.id});
+        model.fetch({
+          success: function(){
+            model.save({'ord': idx,'list_id': collection.list.id});
+          }
+        })
       });
       collection.each(function(item) { 
         if (ids.indexOf(item.id) == -1) {
