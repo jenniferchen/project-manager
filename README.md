@@ -1,10 +1,10 @@
-==Project Manager
+# Project Manager
 
 A tool for managing project workflow.
 Users can create boards with lists and interact with the lists through drag and drop actions. 
 Implemented using Rails, Backbone, and JQuery UI.
 
-Next Steps:
+Future Enhancements:
 - Allow editting of boards, lists, and cards
 - Add additional details to cards
 - Add user relationships so that a user can add colleagues to projects and assign tasks

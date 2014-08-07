@@ -26,3 +26,4 @@ group :development do
 end
 
 gem 'pg'
+gem 'newrelic_rpm'
