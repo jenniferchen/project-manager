@@ -2,6 +2,7 @@ TrelloClone.Views.CardDetail = Backbone.CompositeView.extend({
   template: JST['cards/detail'],
   tagName: "div",
   className: "modal fade",
+  
   id: function(){ return "target-" + this.model.id },
 
   initialize: function(){

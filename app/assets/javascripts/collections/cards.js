@@ -2,9 +2,11 @@ TrelloClone.Collections.Cards = Backbone.Collection.extend({
   model: TrelloClone.Models.Card,
   url: 'api/cards',
   comparator: 'ord',
+
   initialize: function(models, options){
     this.list = options.list
   },
+
   getOrFetch: function(id){
     var collection = this;
     var newItem;
@@ -18,6 +20,7 @@ TrelloClone.Collections.Cards = Backbone.Collection.extend({
     }
     return newItem;
   },
+
   updateOrd: function(data){
     var collection = this;
     if (data == ""){

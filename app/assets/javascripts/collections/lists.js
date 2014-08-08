@@ -1,10 +1,12 @@
 TrelloClone.Collections.Lists = Backbone.Collection.extend({
   model: TrelloClone.Models.List,
   url: 'api/lists',
+  comparator: 'ord',
+
   initialize: function(models, options){
     this.board = options.board;
   },
-  comparator: 'ord',
+  
   updateOrd: function(data){
     var collection = this;
     var ids = data.split("&").map(function(id){ return id.match(/=(\d+)/)[1]});
